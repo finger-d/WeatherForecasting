@@ -1,0 +1,22 @@
+2024-07-28 21:51:10.263 +02:00 [INF] Registered 1 endpoints in 905 milliseconds.
+2024-07-28 21:51:10.686 +02:00 [INF] No validators found in the system!
+2024-07-28 21:51:10.812 +02:00 [INF] Now listening on: https://localhost:7243
+2024-07-28 21:51:10.814 +02:00 [INF] Now listening on: http://localhost:5107
+2024-07-28 21:51:10.818 +02:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-07-28 21:51:10.874 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-07-28 21:51:10.875 +02:00 [INF] Hosting environment: Development
+2024-07-28 21:51:10.875 +02:00 [INF] Content root path: D:\projects\c-teleport\WeatherForecasting\src\WeatherForecasting.WebAPI
+2024-07-28 21:51:11.446 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7243/swagger - null null
+2024-07-28 21:51:11.545 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7243/swagger - 302 0 null 102.4837ms
+2024-07-28 21:51:11.548 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7243/swagger/index.html - null null
+2024-07-28 21:51:11.637 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7243/swagger/index.html - 200 null text/html; charset=utf-8 88.8258ms
+2024-07-28 21:51:11.648 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7243/_framework/aspnetcore-browser-refresh.js - null null
+2024-07-28 21:51:11.657 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7243/_framework/aspnetcore-browser-refresh.js - 200 13786 application/javascript; charset=utf-8 9.2448ms
+2024-07-28 21:51:11.658 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7243/_vs/browserLink - null null
+2024-07-28 21:51:11.709 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7243/_vs/browserLink - 200 null text/javascript; charset=UTF-8 51.5702ms
+2024-07-28 21:51:11.934 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7243/swagger/v1/swagger.json - null null
+2024-07-28 21:51:12.252 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7243/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 317.8622ms
+2024-07-28 21:51:20.532 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7243/WeatherForecast?cityName=Wijchen - null null
+2024-07-28 21:51:20.536 +02:00 [INF] Executing endpoint 'HTTP: GET /WeatherForecast'
+2024-07-28 21:51:20.568 +02:00 [INF] Executed endpoint 'HTTP: GET /WeatherForecast'
+2024-07-28 21:51:20.570 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7243/WeatherForecast?cityName=Wijchen - 200 null application/json 37.5534ms
