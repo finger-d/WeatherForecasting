@@ -2,10 +2,10 @@
 
 public class GetForecastResponse
 {
-    public string CityName { get; set; }
+    public string City { get; set; }
 
-    public GetForecastResponse(string cityName)
+    public GetForecastResponse(string city)
     {
-        CityName = cityName;
+        City = city;
     }
 }

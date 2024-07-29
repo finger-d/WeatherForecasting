@@ -1,6 +1,7 @@
 using FastEndpoints;
 using FastEndpoints.Swagger;
 using Serilog;
+using WeatherForecasting.Infrastructure;
 
 var logger = Log.Logger = new LoggerConfiguration()
   .Enrich.FromLogContext()
@@ -20,7 +21,7 @@ builder.Services.AddFastEndpoints()
         o.ShortSchemaNames = true;
     });
 
-//ConfigureMediatR();
+builder.Services.AddWeatherForecasting();
 
 var app = builder.Build();
 
@@ -32,5 +33,3 @@ app.UseFastEndpoints()
 app.UseHttpsRedirection();
 
 app.Run();
-
-
