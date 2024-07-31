@@ -4,13 +4,24 @@ using WeatherForecasting.Infrastructure;
 
 namespace WeatherForecasting.Core.Queries;
 
-public record GetForecastQuery(string City) : IRequest<WeatherForecast>;
+public record GetForecastQuery(string City, DateOnly? Date) : IRequest<IEnumerable<DateWeatherForecast>>;
 
 internal class GetForecastQueryHandler(IWeatherService service)
-: IRequestHandler<GetForecastQuery, WeatherForecast?>
+: IRequestHandler<GetForecastQuery, IEnumerable<DateWeatherForecast>>
 {
-    public async Task<WeatherForecast?> Handle(GetForecastQuery request, CancellationToken cancellationToken)
+    public async Task<IEnumerable<DateWeatherForecast>> Handle(GetForecastQuery request, CancellationToken cancellationToken)
     {
-        return await service.GetForecastAsync(request.City);
+        var forecasts = await service.GetForecastAsync(request.City);
+
+        if (request.Date.HasValue)
+        {
+            DateOnly filterDate = request.Date.Value;
+            return forecasts.Where(f => f.Date.Date == filterDate.ToDateTime(TimeOnly.MinValue).Date);
+        }
+        else
+        {
+            DateTime todayUtc = DateTime.UtcNow.Date;
+            return forecasts.Where(f => f.Date.Date == todayUtc);
+        }
     }
 }

@@ -1,8 +1,8 @@
 ﻿namespace WeatherForecasting.Infrastructure.ApiClient.Model
 {
-    public class Clouds
+    public class Rain
     {
-        public int all { get; set; }
+        public float _3h { get; set; }
     }
 
 }

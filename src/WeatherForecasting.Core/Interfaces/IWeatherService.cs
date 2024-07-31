@@ -4,5 +4,5 @@ namespace WeatherForecasting.Infrastructure;
 
 internal interface IWeatherService
 {
-    Task<WeatherForecast?> GetForecastAsync(string city);
+    Task<IEnumerable<DateWeatherForecast>> GetForecastAsync(string city);
 }

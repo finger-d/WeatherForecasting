@@ -1,6 +1,5 @@
 ﻿namespace WeatherForecasting.Infrastructure.ApiClient.Model
 {
-
     public class Weather
     {
         public int id { get; set; }

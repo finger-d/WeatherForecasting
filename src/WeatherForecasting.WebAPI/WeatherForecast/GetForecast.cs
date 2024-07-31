@@ -1,11 +1,12 @@
 ﻿using FastEndpoints;
 using MediatR;
+using WeatherForecasting.Core.Model;
 using WeatherForecasting.Core.Queries;
 
 namespace WeatherForecasting.WebAPI.WeatherForecast;
 
 public class GetForecast(IMediator _mediator)
-    : Endpoint<GetForecastRequest, Core.Model.WeatherForecast>
+    : Endpoint<GetForecastRequest, IEnumerable<DateWeatherForecast>>
 {
     public override void Configure()
     {
@@ -17,7 +18,7 @@ public class GetForecast(IMediator _mediator)
         GetForecastRequest request,
         CancellationToken cancellationToken)
     {
-        var query = new GetForecastQuery(request.City);
+        var query = new GetForecastQuery(request.City, request.Date);
 
         Response = await _mediator.Send(query, cancellationToken);
     }

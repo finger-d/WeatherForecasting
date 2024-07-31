@@ -17,12 +17,13 @@ internal class OpenWeatherMapService : IWeatherService
         _settings = settings.Value;
     }
 
-    public async Task<WeatherForecast?> GetForecastAsync(string city)
+    public async Task<IEnumerable<DateWeatherForecast>> GetForecastAsync(string city)
     {
         var query = new Dictionary<string, string>
         {
             ["q"] = city,
-            ["APPID"] = _settings.ApiKey
+            ["appid"] = _settings.ApiKey,
+            ["units"] = _settings.Units
         };
 
         var uri = QueryHelpers.AddQueryString("", query);
@@ -30,16 +31,23 @@ internal class OpenWeatherMapService : IWeatherService
         var response = await _client.GetAsync(uri);
         if (response.IsSuccessStatusCode)
         {
-            var responseModel = await response.Content.ReadFromJsonAsync<Rootobject>();
+            var responseModel = await response.Content.ReadFromJsonAsync<ForecastApiModel>();
 
-            return new WeatherForecast
-            {
-                CurrentTemperature = (decimal)responseModel.main.temp,
-                TemperatureMin = (decimal)responseModel.main.temp_min,
-                TemperatureMax = (decimal)responseModel.main.temp_max
-            };
+            return responseModel.list.Select(x =>
+                {
+                    return new DateWeatherForecast
+                    {
+                        Date = DateTimeOffset.FromUnixTimeSeconds(x.dt).UtcDateTime,
+                        Temperature = (decimal)x.main.temp,
+                        Pressure = x.main.pressure,
+                        Humidity = x.main.humidity,
+                        WindSpeed = (decimal)x.wind.speed,
+                        WeatherConditions = x.weather.FirstOrDefault()?.main
+                    };
+                }
+            );
         }
 
-        return null;
+        return [];
     }
 }

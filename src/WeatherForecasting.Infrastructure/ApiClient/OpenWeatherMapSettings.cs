@@ -9,4 +9,7 @@ internal class OpenWeatherMapSettings
 
     [Required]
     public string ApiKey { get; set; }
+
+    public string Units { get; set; }
 }
+
