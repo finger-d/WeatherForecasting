@@ -31,15 +31,18 @@ This solution is a web API that enables users to retrieve weather forecasts base
 ```http
 GET /WeatherForecast?city=London&date=2024-07-31
 
+
 **Example Responses**:
-```http
-[
-    {
-        "date": "2023-07-31",
-        "temperature": 21.5,
-        "pressure": 1012,
-        "humidity": 60,
-        "windSpeed": 5.4,
-        "weatherConditions": "Clear"
-    }
-]
+
+- **Successful Response**:
+  ```json
+  [
+      {
+          "date": "2023-07-31",
+          "temperature": 21.5,
+          "pressure": 1012,
+          "humidity": 60,
+          "windSpeed": 5.4,
+          "weatherConditions": "Clear"
+      }
+  ]
