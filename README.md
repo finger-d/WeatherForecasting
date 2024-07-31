@@ -47,3 +47,28 @@ GET /WeatherForecast?city=London&date=2024-07-31
       }
   ]
   ```
+
+- **City Not Found**:
+  ```json
+  []
+  ```
+
+- **Date Exceeds Forecast Range**:
+  ```json
+  []
+  ```
+
+## Usage Scenarios
+
+1. **Retrieve Today's Forecast for a Specific City**:
+   - Request the weather forecast without specifying a date to get the current day's weather.
+   - Example: `/WeatherForecast?city==New York`
+
+2. **Retrieve Forecast for a Specific Date**:
+   - Provide a city name and a specific date to get the forecast for that day.
+   - Example: `/WeatherForecast?city=Paris&date=2023-08-01`
+
+3. **Handle Errors Gracefully**:
+   - The API handles cases where the city is not found or the date exceeds the forecast range by returning an empty response, ensuring the client can handle these cases smoothly.
+
+
