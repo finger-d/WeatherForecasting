@@ -2,6 +2,8 @@
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("WeatherForecasting.Infrastructure")]
+[assembly: InternalsVisibleTo("WeatherForecasting.Core.Tests")]
+[assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
 
 namespace WeatherForecasting.Core
 {

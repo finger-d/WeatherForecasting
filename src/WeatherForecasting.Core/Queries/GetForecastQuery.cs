@@ -15,13 +15,14 @@ internal class GetForecastQueryHandler(IWeatherService service)
 
         if (request.Date.HasValue)
         {
-            DateOnly filterDate = request.Date.Value;
-            return forecasts.Where(f => f.Date.Date == filterDate.ToDateTime(TimeOnly.MinValue).Date);
+            var filterDate = request.Date.Value
+                .ToDateTime(TimeOnly.MinValue).Date;
+
+            return forecasts.Where(f => f.Date.Date == filterDate);
         }
         else
         {
-            DateTime todayUtc = DateTime.UtcNow.Date;
-            return forecasts.Where(f => f.Date.Date == todayUtc);
+            return forecasts.Where(f => f.Date.Date == DateTime.UtcNow.Date);
         }
     }
 }
