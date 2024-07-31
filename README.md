@@ -30,7 +30,7 @@ This solution is a web API that enables users to retrieve weather forecasts base
 **Example Request**:
 ```http
 GET /WeatherForecast?city=London&date=2024-07-31
-
+```
 
 **Example Responses**:
 
@@ -46,3 +46,4 @@ GET /WeatherForecast?city=London&date=2024-07-31
           "weatherConditions": "Clear"
       }
   ]
+  ```
